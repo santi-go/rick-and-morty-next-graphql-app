@@ -1,3 +1,8 @@
+interface CharacterLocation {
+    name: string;
+    url:  string;
+}
+
 export interface Character {
     id:       number;
     name:     string;
@@ -5,17 +10,34 @@ export interface Character {
     species:  string;
     type:     string;
     gender:   string;
-    origin:   Location;
-    location: Location;
+    origin:   CharacterLocation;
+    location: CharacterLocation;
     image:    string;
     episode:  string[];
     url:      string;
     created:  Date;
 }
 
-export interface Location {
-    name: string;
-    url:  string;
+export interface Episode {
+    id:         number;
+    name:       string;
+    air_date:   string;
+    episode:    string;
+    characters: string[];
+    url:        string;
+    created:    Date;
 }
+
+export interface Location {
+    id:        number;
+    name:      string;
+    type:      string;
+    dimension: string;
+    residents: string[];
+    url:       string;
+    created:   Date;
+}
+
+
 
 export type Category = "character" | "location" | "episode";

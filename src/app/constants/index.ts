@@ -5,3 +5,4 @@ export const CATEGORIES: Record<Category, Category> = {
   location: "location",
   episode: "episode",
 };
+export const API_URL = "https://rickandmortyapi.com/api/";
