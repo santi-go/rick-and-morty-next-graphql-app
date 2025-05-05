@@ -1,3 +1,6 @@
+'use client';
+
+import Link from "next/link";
 import CharacterCard from "./CharacterCard";
 import EpisodeCard from "./EpisodeCard";
 import LocationCard from "./LocationCard";
@@ -11,16 +14,15 @@ interface ItemListProps {
 
 export default function ItemList({ items, category }: ItemListProps) {
   const renderCard = (item: Character | Episode | Location) => {
-    switch (category) {
-      case "character":
-        return <CharacterCard character={item as Character} />;
-      case "episode":
-        return <EpisodeCard episode={item as Episode} />;
-      case "location":
-        return <LocationCard location={item as Location} />;
-      default:
-        return null;
-    }
+    const path = `/${category}/${item.id}`;
+
+    return (
+      <Link href={path}>
+        {category === "character" && <CharacterCard character={item as Character} />}
+        {category === "episode" && <EpisodeCard episode={item as Episode} />}
+        {category === "location" && <LocationCard location={item as Location} />}
+      </Link>
+    );
   };
 
   return (

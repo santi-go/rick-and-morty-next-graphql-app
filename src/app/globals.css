@@ -1,26 +1,78 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b1e2d; /* Dark blue-green background */
+  --foreground: #ffffff; /* White text for contrast */
+  --accent: #97ce4c; /* Rick's portal green */
+  --secondary-accent: #f5a623; /* Vibrant orange for highlights */
+  --error: #ff4c4c; /* Red for errors or warnings */
+  --font-sans: 'Inter', Arial, Helvetica, sans-serif; /* Clean and modern sans-serif font */
+  --font-mono: 'Courier New', Courier, monospace; /* Monospace font for code-like elements */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-secondary-accent: var(--secondary-accent);
+  --color-error: var(--error);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #08141e; /* Even darker blue-green for dark mode */
+    --foreground: #d4f1f4; /* Light cyan for better contrast in dark mode */
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  line-height: 1.6; /* Improve readability */
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondary-accent);
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--accent);
+  color: var(--foreground);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary-accent);
+}
+
+button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  color: var(--foreground);
+}
+
+code {
+  font-family: var(--font-mono);
+  background-color: #1e293b; /* Dark gray for code blocks */
+  color: #d4f1f4; /* Light cyan for text */
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
 }
